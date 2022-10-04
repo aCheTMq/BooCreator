@@ -430,7 +430,7 @@ function Download-Windows([Int]$Version) {
 
         while ($match.Success) {
             $archNameItem = ($match.Groups[2].Value.ToString()).Replace(" ", "").Replace("Iso", "").Replace("ISO", "").Replace("iso", "").Replace("X", "x")
-            $archsList += ,@($archNameItem, $match.Groups[1].Value)
+            $archsList += ,@($archNameItem, $match.Groups[1].Value.Replace("&amp;", "&"))
             $archName = $archNameItem
             $match = $match.NextMatch()
         }
