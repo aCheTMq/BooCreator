@@ -1,7 +1,7 @@
 #
 # Boo Creator v. 1.0 - Feature ISO Downloader, for retail Windows images and
 # a tool for creating bootable disks
-# Copyright ¬© 2022 Baruzdin Alexey
+# Copyright © 2022 Baruzdin Alexey
 #    https://youtube.com/channel/UChyAYOcXxvjdDU3Blg_mDmg
 #    https://zen.yandex.ru/aCheTMq
 #    https://github.com/aCheTMq/BooCreator
@@ -33,7 +33,7 @@ $Script:gLang = @()
 if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
     $argsList = "-File " + $gScriptPath
 
-    Write-Host "Run As Administrator‚Ä¶"
+    Write-Host "Run As AdministratorÖ"
     Start-Process powershell -Verb runAs -ArgumentList $argsList
 }
 
@@ -698,11 +698,11 @@ function Show-MainMenu() {
 }
 
 function Set-ISOPath($Directory) {
-    [System.Reflection.Assembly]::LoadWithPartialName(‚ÄúSystem.windows.forms‚Äù) | Out-Null
+    [System.Reflection.Assembly]::LoadWithPartialName("System.windows.formsî) | Out-Null
 
     $OpenFileDialog = New-Object System.Windows.Forms.OpenFileDialog
     $OpenFileDialog.initialDirectory = $Directory
-    $OpenFileDialog.filter = ‚ÄúISO (*.iso)| *.iso‚Äù
+    $OpenFileDialog.filter = "ISO (*.iso)| *.isoî
     $OpenFileDialog.ShowDialog() | Out-Null
     
     return $OpenFileDialog.filename
@@ -725,8 +725,8 @@ function Set-Language() {
         $Script:gLang += '	1. Download Windows' #4
         $Script:gLang += '	2. Specify the path of the Windows ISO distribution' #5
         $Script:gLang += '	You can select:' #6
-        $Script:gLang += '		[1-%1%] ‚Äî menu item;' #7
-        $Script:gLang += '		[E]xit ‚Äî exit.' #8
+        $Script:gLang += '		[1-%1%] ó menu item;' #7
+        $Script:gLang += '		[E]xit ó exit.' #8
         $Script:gLang += '	What are we going to do? Choose' #9
         $Script:gLang += '	ERROR: THE MENU ITEM "%1%" WAS NOT FOUND! AFTER 2 SECONDS, YOU CAN TRY YOUR LUCK AGAIN!' #10
         $Script:gLang += 'e' #11
@@ -760,8 +760,8 @@ function Set-Language() {
         $Script:gLang += '		S - system.' #39
         $Script:gLang += ', B' #40
         $Script:gLang += ', S' #41
-        $Script:gLang += '		[0-%1%] ‚Äî disk index;' #42
-        $Script:gLang += '		[B]ack ‚Äî back.' #43
+        $Script:gLang += '		[0-%1%] ó disk index;' #42
+        $Script:gLang += '		[B]ack ó back.' #43
         $Script:gLang += 'b' #44
         $Script:gLang += 'b' #45
         $Script:gLang += '	ERROR: THE DISK "%1%" IS SYSTEM OR BOOTABLE! IT CANNOT BE USED!' #46
@@ -773,18 +773,18 @@ function Set-Language() {
         $Script:gLang += '	1. Connecting ISO "%1%"...' #52
         $Script:gLang += '		FAILED TO CONNECT ISO "%1%"! THE PROCESS WILL BE INTERRUPTED!' #53
         $Script:gLang += ' COMPLETED!' #54
-        $Script:gLang += '		Disabling ISO "%1%"‚Ä¶' #55
+        $Script:gLang += '		Disabling ISO "%1%"Ö' #55
         $Script:gLang += '		ALL THE LETTERS OF THE VOLUMES ARE OCCUPIED! THE PROCESS WILL BE INTERRUPTED!' #56
         $Script:gLang += '	2. Creating bootable devices from "%1%"' #57
         $Script:gLang += '		Disk cleanup "%1%"...' #58
         $Script:gLang += '		FAILED TO EDIT DISK "%1%"! THE PROCESS WILL BE INTERRUPTED!' #59
-        $Script:gLang += '		Converting the boot disk "%1%" to MBR‚Ä¶' #60
-        $Script:gLang += '		Creating a partition on the boot disk "%1%"‚Ä¶' #61
-        $Script:gLang += '		Creating a volume on the boot disk "%1%"‚Ä¶' #62
+        $Script:gLang += '		Converting the boot disk "%1%" to MBRÖ' #60
+        $Script:gLang += '		Creating a partition on the boot disk "%1%"Ö' #61
+        $Script:gLang += '		Creating a volume on the boot disk "%1%"Ö' #62
         $Script:gLang += '		Set the name of the boot disk "%1%"...' #63
         $Script:gLang += '		ATTENTION! THIS PROCESS WILL TAKE TIME. THERE IS NO PROGRESS DISPLAY.' #64
-        $Script:gLang += '		Splitting the Windows image "install.wim" into parts of 3 968 MB‚Ä¶' #65
-        $Script:gLang += '		Copying files‚Ä¶' #66
+        $Script:gLang += '		Splitting the Windows image "install.wim" into parts of 3 968 MBÖ' #65
+        $Script:gLang += '		Copying filesÖ' #66
         $Script:gLang += '		WINDOWS DISTRIBUTION FILES COULD NOT BE COPIED! THE PROCESS WILL BE INTERRUPTED!' #67
         $Script:gLang += '	COULD NOT DISABLE ISO "%1%"! DO IT MANUALLY!' #68
         $Script:gLang += '	THE BOOT DISK IS CREATED!' #69
@@ -792,25 +792,25 @@ function Set-Language() {
         $Script:gLang += '	3. Create a distribution' #71
         $Script:gLang += '	4. Disabling ISO "%1%"...' #72
         $Script:gLang += ' ERROR!' #73
-        $Script:gLang += '	1. Getting data about available editions‚Ä¶' #74
+        $Script:gLang += '	1. Getting data about available editionsÖ' #74
         $Script:gLang += '		Choose the Windows edition:' #75
         $Script:gLang += '		You can select:' #76
-        $Script:gLang += '			[0-%1%] ‚Äî edition;' #77
-        $Script:gLang += '			[B]ack	‚Äî back.' #78
+        $Script:gLang += '			[0-%1%] ó edition;' #77
+        $Script:gLang += '			[B]ack	ó back.' #78
         $Script:gLang += '		What are we going to do? Choose' #79
         $Script:gLang += '		The revision "%1%" is selected.' #80
-        $Script:gLang += '	2. Getting data about available languages‚Ä¶' #81
+        $Script:gLang += '	2. Getting data about available languagesÖ' #81
         $Script:gLang += '		Choose the Windows language:' #82
-        $Script:gLang += '			[0-%1%]	‚Äî language;' #83
+        $Script:gLang += '			[0-%1%]	ó language;' #83
         $Script:gLang += '		The language selected is "%1%".' #84
-        $Script:gLang += '	3. Getting data on available architectures‚Ä¶' #85
+        $Script:gLang += '	3. Getting data on available architecturesÖ' #85
         $Script:gLang += '		Choose the Windows architecture:' #86
-        $Script:gLang += '			[0-%1%] ‚Äî architecture;' #87
+        $Script:gLang += '			[0-%1%] ó architecture;' #87
         $Script:gLang += '		The architecture "%1%" is selected.' #88
         $Script:gLang += '	ATTENTION! THIS PROCESS WILL TAKE TIME. THERE IS NO PROGRESS DISPLAY.' #89
-        $Script:gLang += '	4. Download %1% %2% %3%‚Ä¶' #90
+        $Script:gLang += '	4. Download %1% %2% %3%Ö' #90
         $Script:gLang += '	Which version of Windows will you download from the Microsoft website?' #91
-        $Script:gLang += '		[1-4]	‚Äî menu item;' #92
+        $Script:gLang += '		[1-4]	ó menu item;' #92
     }
 
 }
