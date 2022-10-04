@@ -1,4 +1,4 @@
-﻿#
+#
 # Boo Creator v. 1.0 - Feature ISO Downloader, for retail Windows images and
 # a tool for creating bootable disks
 # Copyright © 2022 Baruzdin Alexey
@@ -293,7 +293,7 @@ function Download-Windows([Int]$Version) {
 
     $languagesList = @()
     $languagePOSTs = @("https://www.microsoft.com/en-us/api/controls/contentinclude/html?pageId=6e2a1789-ef16-4f27-a296-74ef7ef5d96b&host=www.microsoft.com&segments=software-download,windows11&query=&action=GetProductDownloadLinksBySku&sessionId=%1%&skuId=%2%&language=%3%&sdVersion=2",
-                        "https://www.microsoft.com/en-us/api/controls/contentinclude/html?pageId=811cfbfe-c474-4dee-82d1-09a964a34487&host=www.microsoft.com&segments=software-download,windows10ISO&query=&action=GetProductDownloadLinksBySku&sessionId=%1%&skuId=%2%&language=%3%&sdVersion=2",
+                        "https://www.microsoft.com/en-us/api/controls/contentinclude/html?pageId=a224afab-2097-4dfa-a2ba-463eb191a285&host=www.microsoft.com&segments=software-download,windows10ISO&query=&action=GetProductDownloadLinksBySku&sessionId=%1%&skuId=%2%&language=%3%&sdVersion=2",
                         "https://www.microsoft.com/en-us/api/controls/contentinclude/html?pageId=cfa9e580-a81e-4a4b-a846-7b21bf4e2e5b&host=www.microsoft.com&segments=software-download,windows8iso&query=&action=GetProductDownloadLinksBySku&sessionId=%1%&skuId=%2%&language=%3%&sdVersion=2",
                         "")
     $languagePost = $languagePOSTs[$Version]
@@ -369,6 +369,8 @@ function Download-Windows([Int]$Version) {
 	    $html = $streamReader.ReadToEnd().ToString()
         $html = $html.Replace("&quot;", """")
         $streamReader.Dispose()
+        
+        $streamReader.Dispose()
 
         $regex = [System.Text.RegularExpressions.Regex]::new($patterns3[$Version])
         $match = $regex.Match($html)
@@ -410,7 +412,8 @@ function Download-Windows([Int]$Version) {
     Write-Host $gLang[84].Replace("%1%", $languageName)
     $languagePost = $languagePost.Replace("%2%", $languagesList[$languageSelect][0])
     $languagePost = $languagePost.Replace("%3%", $languagesList[$languageSelect][1])
-    $languagePost = $languagePost.Replace(" ", "%20")
+    #$languagePost = $languagePost.Replace(" ", "%20")
+    #Write-Host $languagePost
 
     Write-Host
     Write-Host $gLang[85] -NoNewline
@@ -485,6 +488,7 @@ function Download-Windows([Int]$Version) {
     $origPref = $ProgressPreference
     $ProgressPreference = "SilentlyContinue"
     Invoke-WebRequest -Uri $archsList[$archSelect][1] -OutFile $fileName
+    Write-Host $archsList[$archSelect][1]
     $ProgressPreference = $origPref
     Write-Host $gLang[54]
 
