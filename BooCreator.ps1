@@ -35,6 +35,7 @@ if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 
     Write-Host "Run As Administrator…"
     Start-Process powershell -Verb runAs -ArgumentList $argsList
+    Exit
 }
 
 function Create-BootableDisk($ISOFile = $null, $DiskNumber = -1) {
