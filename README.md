@@ -1,5 +1,5 @@
 # Boo Creation v. 1.0
-Copyright © 2022 Baeuzdin Alexey
+Copyright © 2022 Baruzdin Alexey
 
 Youtube: https://youtube.com/channel/UChyAYOcXxvjdDU3Blg_mDmg
 
