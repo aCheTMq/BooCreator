@@ -31,7 +31,7 @@ $Script:gLang = @()
 [Int]$gLangIndex = 0
 
 if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
-    $argsList = "-File " + $gScriptPath
+    $argsList = "-File " + """" + $gScriptPath + """"
 
     Write-Host "Run As Administrator…"
     Start-Process powershell -Verb runAs -ArgumentList $argsList
