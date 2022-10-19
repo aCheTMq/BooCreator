@@ -7,6 +7,8 @@ Dzen: https://zen.yandex.ru/aCheTMq
 
 Github: https://github.com/aCheTMq/BooCreator
 
+Donate: https://www.donationalerts.com/r/achetmq
+
 Mail: just.so@mail.ru
 
 # Description
